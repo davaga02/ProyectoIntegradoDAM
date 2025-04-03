@@ -86,7 +86,7 @@
             android:layout_marginRight="50dp"
             android:background="@drawable/roundedbtn_input"
             android:fontFamily="@font/baloo"
-            android:onClick="onClcikAcceder"
+            android:onClick="onClikAcceder"
             android:text="Acceder"
             android:textColor="#FFFFFF"
             android:textColorLink="#F7A925"

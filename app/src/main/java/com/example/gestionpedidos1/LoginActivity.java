@@ -1,5 +1,6 @@
 package com.example.gestionpedidos1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,13 +24,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_login);
 
         etNombreUs = findViewById(R.id.etUsername);
         etContrasena = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvRegistro = findViewById(R.id.tvRegister);
 
-        setContentView(R.layout.activity_login);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -37,10 +39,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void onClcikAcceder(View view) {
+    public void onClikAcceder(View view) {
         String usuario = etNombreUs.getText().toString().trim();
         String contrasena = etContrasena.getText().toString().trim();
 
+        Intent intent = new Intent(LoginActivity.this, PrincipalAdminActivity.class);
+        startActivity(intent);
+
+/*
         if (usuario.isEmpty() || contrasena.isEmpty()) {
             Toast.makeText(this, "Por favor, ingrese un nombre de usuario y una contraseña", Toast.LENGTH_SHORT).show();
             return;
@@ -52,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
             // Ejemplo: Intent para ir a la página principal del administrador
             // startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
         }
+
+ */
     }
 
     public void onClickRegistrar(View view) {
